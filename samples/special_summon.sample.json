@@ -1,0 +1,10 @@
+{
+  "000000/25/0": {
+    "hit":  { "chance": 100, "id": "000000/30", "buff": 0, "minDist": 0, "maxDist": 0, "spawnDelay": 0, "summonAnim": 0, "form": 0 },
+    "kill": { "chance": 100, "id": "000000/31", "buff": 0, "minDist": 0, "maxDist": 0, "spawnDelay": 0, "summonAnim": 0, "form": 1 },
+    "miss": { "chance": 50,  "id": "000000/32", "buff": 0, "minDist": 100, "maxDist": 300, "spawnDelay": 0, "summonAnim": 0, "form": 0 }
+  },
+  "000000/25/1": {
+    "hit":  { "chance": 100, "id": "000000/33", "buff": 0, "minDist": 0, "maxDist": 0, "spawnDelay": 0, "summonAnim": 0, "form": 0 }
+  }
+}

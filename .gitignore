@@ -1,0 +1,37 @@
+# build output
+/out/
+*.class
+
+# built jars - releases carry these, git does not
+/manual-control-patch*.jar
+/installer-build/
+download/BCU Crazy/*.jar
+download/BCU Crazy/installer_payload/
+/release/out/
+
+# a BCU jar or JDK dropped here as a build reference
+/bcu/
+/jdk*/
+BCU*.jar
+
+# runtime state written next to the agent
+manual-control.log
+install.log
+crazy-features.properties
+special_summon.json
+summon_attach.json
+adventure_saves/
+mini_modes/
+
+# editors and OS
+.idea/
+.vscode/
+*.iml
+Thumbs.db
+desktop.ini
+
+# files the installer drops here when it is run on this machine
+/Crazy BCU.bat
+/Crazy BCU (No Console).vbs
+/README - Crazy BCU.txt
+/crazy-install.txt

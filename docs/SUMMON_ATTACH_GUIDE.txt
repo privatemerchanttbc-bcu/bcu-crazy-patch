@@ -1,0 +1,69 @@
+SUMMON: ATTACH TO PART
+======================
+
+What it does
+------------
+Adds one option to the vanilla BCU Summon proc. Instead of appearing on the
+ground straight away, the summoned unit rides one part of the summoner's
+animation (a thrown rock, a launched missile, a held egg) from a chosen frame
+until a chosen release frame. At release it detaches at that part's position,
+falls straight down to the ground, and only then becomes a real unit with
+normal AI.
+
+While it is riding and while it is falling the summoned unit does not exist in
+the battle: no HP, no hitbox, it cannot be shot, and it is not counted against
+the unit limit. It is only drawn. The real unit is created the moment it
+touches the ground.
+
+Setting it up
+-------------
+1. Open the unit form in the editor. The form must already have a Summon proc
+   on the attack you want (unit summons only - the summoned entity has to be a
+   unit, not an enemy).
+2. Click "Summon: Attach to Part" above the attack proc table.
+3. Pick the attack (Attack 1..4), tick "Enable attach mode for this attack",
+   then choose:
+     Animation        which animation the frame numbers are counted on
+                      (normally ATK)
+     Part             which part of the model the unit rides
+     Summon frame     when the unit becomes visible on that part
+     Release frame    when it detaches and starts to fall
+     Offset X / Y     nudge the sprite off the part's pivot (screen pixels)
+     Scale            size of the carried sprite
+     Fall gravity     how fast it falls after release
+     Carried animation which animation the carried sprite plays
+4. Drag the frame slider to check the position. The yellow box marks the
+   selected part, the cross marks its pivot, and the summoned unit is drawn on
+   top of it.
+5. OK saves. The change applies from the next battle.
+
+How the timing works
+--------------------
+The Summon proc itself still fires when BCU decides (on attack, or on hit /
+on kill). That firing only arms the attachment. The sprite then appears the
+next time the chosen animation passes the summon frame, so with a hit-frame
+summon the rider shows up on the following swing of the same attack. If the
+summoner is knocked back, frozen, or its animation is cut, the rider keeps
+waiting and is released on the next swing that reaches the release frame. If
+the summoner dies while a unit is still attached, that unit is dropped where
+it is and falls normally - it is never lost.
+
+If the release frame is past the end of the animation, release happens on the
+last frame.
+
+Notes
+-----
+- In attach mode the proc's distance / max distance fields are ignored. The
+  landing position comes from the part, plus Offset X.
+- Everything else on the proc still applies: level, form, spawn delay, summon
+  animation, ignore limit, bond HP, same HP, layers.
+- Config file: summon_attach.json next to special_summon.json. Key format is
+  pack/id/form/attack, with form and attack counted from 0.
+- Adding or reordering attacks shifts the attack index, so set this up after
+  the attacks are final.
+
+Log lines to look for in manual-control.log:
+  summon-attach: loaded N entry(ies)
+  summon-attach: armed key=...
+  summon-attach: released at pos=... height=...
+  summon-attach: landed at pos=...

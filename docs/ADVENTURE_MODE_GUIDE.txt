@@ -1,0 +1,212 @@
+================================================================================
+              ADVENTURE MODE - The Totally Official Survival Manual
+================================================================================
+
+Welcome, brave Cat Commander. You have played Battle Cats the normal way for
+years: deploy units, watch them shuffle right, sip your coffee, win. Adorable.
+
+Adventure Mode looked at that and said "no". Here, you control exactly ONE cat,
+with your own two hands, in real time, while an angry parade of enemies tries to
+turn you into a fine paste. There is no cannon. There is no worker cat. There is
+no retreat. There is only you, a keyboard, and poor life decisions.
+
+Let's get you killed as slowly as possible.
+
+
+--------------------------------------------------------------------------------
+1. THE CONTROLS  (a.k.a. Keyboard Twister)
+--------------------------------------------------------------------------------
+
+   A / D  ....  Move left / right. Yes, it's WASD but the cat forgot W and S.
+   J      ....  Attack. Mash responsibly. Real attack, real hitbox.
+   K      ....  Jump. Also a dodge: you're briefly INVINCIBLE mid-air.
+   L      ....  Conjure. Summon an ally IF your unit can. ~5s cooldown.
+   W      ....  Teleport. Only if you grabbed the TELEPORT CORE. Blink like you
+                mean it.
+   P      ....  Pause menu. Freezes the chaos. Resume / Restart / Save & Quit.
+
+That's it. Five fingers, infinite regret. If your unit has no summon, L does
+nothing and judges you silently.
+
+Fun fact: hit detection is pixel-perfect (image-boundary combat is force-locked
+ON, so don't bother with F7 - we already flipped that switch for you). If your
+sword visibly touches an enemy, it connects. If it whiffs, that was skill issue.
+
+
+--------------------------------------------------------------------------------
+2. GETTING STARTED  (Choose Your Fighter)
+--------------------------------------------------------------------------------
+
+  1. On the main menu, click "Adventure Mode". A shiny 3-slot save screen opens.
+  2. Each slot is either Empty (New Game) or shows your saved run: the unit, the
+     stage, lives left, cores collected, and when you last rage-quit.
+  3. Pick an empty slot -> New Game -> the unit picker opens.
+
+  THE UNIT PICKER
+  Every player unit from every pack you own is here. All of them. Even the
+  embarrassing ones. There's a live animation preview so you can admire your cat
+  before it dies.
+    - Type in the search box to filter by name or pack.
+    - The "Conjure" column shows a checkmark if the unit can summon with L.
+    - Set your Lives (1-9, default 3). More lives = more chances to embarrass
+      yourself.
+
+  CASUAL vs IRONMAN  (choose your pain level)
+    - CASUAL : die and you keep your checkpoint. Reload, retry the stage,
+      pretend it never happened. The gaming equivalent of "undo".
+    - IRONMAN: die and your save slot is DELETED. Gone. Vaporized. Your run,
+      your cores, your dreams - all of it. Ironman slots wear a little skull
+      badge so you remember the stakes every time you look at them. Brave.
+      Foolish. We respect it.
+
+  Pick your unit, hit OK, and off you go.
+
+  "CONTINUE LAST RUN"
+  Too impatient for the slot screen? The 3-slot dialog has a "Continue Last Run"
+  button at the top that jumps straight back into your most recent save. For
+  people who fear commitment to menus.
+
+
+--------------------------------------------------------------------------------
+3. THE GAMEPLAY LOOP  (Fight, Sweat, Repeat)
+--------------------------------------------------------------------------------
+
+Each stage is a chunk of the Empire of Cats campaign, reimagined as a brawler:
+
+  1. Enemies pour in from the left. Up to 8 at a time, because we love you.
+  2. You beat them up. They beat you up. It's a whole thing.
+  3. Clear every enemy and a PORTAL DOOR appears. It looks suspiciously like a
+     Minecraft Nether gate because our art department has *taste*.
+  4. Walk into the door -> flashy transition -> POWER CORE selection -> next
+     stage.
+
+Do this until you either win the campaign or die trying. Spoiler: it's usually
+the second one.
+
+
+--------------------------------------------------------------------------------
+4. POWER CORES  (The Good Stuff)
+--------------------------------------------------------------------------------
+
+Between stages you get offered 3 cores. Pick ONE:
+    - A / D to move the cursor, J to confirm.
+    - Cores STACK for the entire run. Grab 20 damage cores and become a war
+      crime.
+    - The tier climbs as you go: Bronze -> Silver -> Gold -> Platinum -> Legend.
+      Legend cores are the ones that make the game beg for mercy.
+
+There are dozens of cores. A tasting menu:
+
+    Might / Crit / Berserker  - hit harder, hit crit-ier, hit angrier.
+    Vitality / Guard / Regen / Lifesteal - live longer, spite the healers.
+    Swiftness / Haste / Frenzy - zoom and swing like a caffeinated blender.
+    Sky Leap / Featherfall     - jump to the moon, fall like a leaf.
+    Wave Core   - your hits launch a piercing wave that shoves enemies back.
+    Surge Core  - hits erupt in a molten zone. Very warm. Enemies dislike it.
+    Teleport Core - unlocks the W blink. Now you're basically a magician.
+
+And the spicy UNIQUE cores, from "neat" to "why is this legal":
+
+    Titan Core   - become HUGE. Double size, double HP, extra damage. Personal
+                   space? No.
+    Glass Cannon - triple damage, 40% HP. Live fast, die embarrassingly.
+    One Punch    - every hit has a chance to just... delete an enemy. No notes.
+    Afterimage   - your hits leave blue ghost clones that repeat the attack.
+    Golden God   - upgrades EVERY core you own by a tier. Greed, rewarded.
+    Second Wind  - cheat death once per stage. A free continue from the universe.
+
+Read the cards. Or don't. Chaos is a valid strategy.
+
+
+--------------------------------------------------------------------------------
+5. DYING, LIVES, AND THE PAUSE BUTTON
+--------------------------------------------------------------------------------
+
+You have lives. When your HP hits zero:
+    - Lives remaining? You respawn. Shake it off, champ.
+    - Out of lives?    Game Over. Casual keeps your checkpoint; Ironman feeds
+      your save to the void (see above, and maybe shed a single tear).
+
+  THE PAUSE MENU (P)
+  Press P to freeze time and open the menu. Navigate with W/S (or A/D), confirm
+  with J:
+    - Resume         - back to the violence.
+    - Restart Stage  - redo the current stage from the top. For when it all went
+      wrong.
+    - Save & Quit to Menu - bail out cleanly and come back later. Progress waits.
+
+
+--------------------------------------------------------------------------------
+6. THE SAVE SYSTEM  (a.k.a. "It Actually Remembers You")
+--------------------------------------------------------------------------------
+
+    - AUTOSAVE: at the start of every stage, your run is quietly saved - unit,
+      stage, lives, and all your precious cores. No button needed. We got you.
+    - Saves live in their own folders on disk, each with a backup copy, because
+      we assume the worst about hard drives.
+    - Turn off the game mid-run, come back next week, hit Continue - you're right
+      where you left off (at the start of that stage; we save checkpoints, not
+      your exact mid-air flailing).
+
+  Note: checkpoints are per-stage. Reloading drops you at the stage's beginning,
+  not the precise pixel where you panicked. Consider it a mulligan.
+
+
+--------------------------------------------------------------------------------
+7. ZOMBIES AND OTHER PARTY CRASHERS
+--------------------------------------------------------------------------------
+
+Some enemies are ZOMBIES. You kill them, they lie down for a dramatic nap, then
+pop back up for round two. In Adventure Mode we keep the nap SHORT (about a
+second) so the action stays snappy - no more staring at a corpse wondering if the
+game froze.
+
+And no, you cannot skip their revive by cannonballing onto the body anymore. We
+patched your cheese. The zombies are invincible while napping. Let them have this.
+
+
+--------------------------------------------------------------------------------
+8. PRO TIPS FROM CATS WHO DIED SO YOU DON'T HAVE TO
+--------------------------------------------------------------------------------
+
+    - JUMP IS A DODGE. Big scary attack incoming? K over it. Invincibility frames
+      are your best friend and your only friend.
+    - FIGHT ON BOTH SIDES. You attack whichever way you face. Weave through the
+      crowd, don't just stand there like a deploy-and-pray cat.
+    - SNOWBALL YOUR CORES. Stacking one theme (all damage, or all speed) usually
+      beats a scattered mess. Commit to the bit.
+    - HEALTHY = POWERFUL. Cores like Battle Trance and Slipstream only work while
+      your HP is high. Don't get slapped around.
+    - IRONMAN IS FOR CLOSERS. Try Casual first. Ironman is a flex, not a start.
+    - WAVE AND SURGE are crowd control gold. Facing a mob? Point at it and swing.
+
+
+--------------------------------------------------------------------------------
+9. TROUBLESHOOTING  (When Cats Attack Your Expectations)
+--------------------------------------------------------------------------------
+
+  Q: My cat won't summon anything with L!
+  A: Your unit doesn't have a summon ability. The Conjure column would've had a
+     checkmark. This is a "read the label" situation.
+
+  Q: W does nothing!
+  A: You need the TELEPORT CORE. Until then, W is just a lonely key having an
+     existential crisis.
+
+  Q: An enemy is standing still doing nothing!
+  A: It's probably a zombie taking its brief revive nap, or it's out of range
+     plotting. Give it a second. If a LIVING enemy truly freezes forever, that's
+     a bug - tell the dev and mention it happened after a jump.
+
+  Q: I died and my whole save vanished!
+  A: You picked IRONMAN, you magnificent daredevil. That's the deal. The skull
+     badge tried to warn you.
+
+  Q: This is really hard.
+  A: Yes. That's the feature. Adventure Mode is not here to be your friend. It's
+     here to be your worthy adversary. Now get back in there.
+
+
+================================================================================
+        Good luck, Commander. Try not to become a hat.
+================================================================================
