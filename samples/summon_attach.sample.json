@@ -1,0 +1,14 @@
+{
+  "MyPack/0/0/0": {
+    "enabled": true,
+    "anim": "ATK",
+    "part": 12,
+    "summonFrame": 10,
+    "releaseFrame": 30,
+    "offsetX": 0.0,
+    "offsetY": 0.0,
+    "ghostAnim": "WALK",
+    "gravity": 1.4,
+    "scale": 1.0
+  }
+}

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Premain-Class: manualcontrol.ManualControlAgent
+Agent-Class: manualcontrol.ManualControlAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Implementation-Title: BCU Manual Control Patch
+Implementation-Version: 0.15.2
+Created-By: 17.0.13 (Eclipse Adoptium)
+

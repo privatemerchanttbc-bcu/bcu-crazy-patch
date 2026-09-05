@@ -1,0 +1,70 @@
+SPECIAL SM (special summon) - guide
+===================================
+
+A config-driven summon behavior for units. For any unit listed here, its
+attacks summon a different unit depending on the outcome of the swing:
+
+  - HIT   (non-lethal connect)          -> summon Unit A ("hit")
+  - KILL  (the swing kills the target)  -> summon Unit B ("kill")
+  - MISS  (the swing connects with no target = whiff) -> summon Unit C ("miss")
+
+HIT and KILL are additive: a non-killing connect fires "hit"; a killing blow
+rolls BOTH "hit" and "kill" independently (so a kill can spawn A and B). MISS
+is counted per hitbox (each attack box that whiffs rolls on its own).
+
+FILE LOCATION
+-------------
+Name the file exactly:  special_summon.json
+Put it in either (checked in this order):
+  1. The patch folder:  <BCU>\bcu-crazy-patch\special_summon.json
+  2. The BCU folder:    <BCU>\special_summon.json
+Copy special_summon.sample.json to one of those, rename, and edit.
+The file is re-read at battle start; no file / empty file = feature off.
+
+KEY = the ATTACKING form, as  "pack/id/form"
+--------------------------------------------
+  pack : pack id, "000000" is the official BC pack
+  id   : unit number inside the pack
+  form : form index, 0-based; matches the form list order
+         (0 = base, 1 = second form, 2 = third form, ...).
+Each form has its OWN independent config; saving one form never affects
+another form or another unit.
+Example: "000000/25/2" = official unit 25, form index 2.
+Tip: set Special SM AFTER the unit's forms are finalized. Adding, removing
+or reordering forms shifts their indices and would orphan a form's config.
+
+EACH OUTCOME BLOCK ("hit" / "kill" / "miss") - omit a block to disable it
+-------------------------------------------------------------------------
+  chance      : 1..100 percent to summon on that outcome. Below 1 = disabled.
+  copies      : how many to summon.
+                 -1 = one per enemy struck by the swing (area attacks)
+                  0 = default (1 per swing, regardless of how many enemies hit)
+                  1 = exactly 1 per swing
+                  N = N copies per swing
+                (MISS has no enemies, so -1/0/1 all summon 1; N summons N.)
+  id          : unit to summon, "pack/id" (e.g. "000000/30")
+  form        : which form of the summoned unit, 0-based (0 = first form)
+  buff        : summoned level bonus (added to summoner level; 0 = same level).
+                With fixBuff true, this is used as the absolute level instead.
+  minDist     : spawn offset from the reference point (like vanilla Summon)
+  maxDist     : max spawn offset; a random value in [minDist, maxDist] is used
+  spawnDelay  : frames before the summon appears
+  summonAnim  : summon animation type (0..3), same as the vanilla Summon proc
+  layerMin    : min layer; use -1 for "same layer as the summoner"
+  layerMax    : max layer; use -1 for "same layer as the summoner"
+  ignoreLimit : true = ignore the unit-count cap
+  fixBuff     : true = buff is an absolute level, not a bonus
+  sameHealth  : true = summon starts at the summoner's current HP
+  bondHealth  : true = summon dies when the summoner dies
+  enemy       : true = "id" is an ENEMY, not a cat. For enemies "buff" is the
+                magnification percent (100 = 100%) and "form" is ignored.
+
+Fields left out default to 0 / false.
+
+NOTES
+-----
+  - HIT/KILL summon near the target that was struck.
+  - MISS has no target, so it summons near the attacking unit, using
+    minDist/maxDist exactly like the normal Summon mechanic.
+  - Summoned ids resolve as Cat units by default; set "enemy": true to
+    summon an enemy instead.
