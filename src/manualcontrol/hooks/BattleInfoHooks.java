@@ -45,6 +45,33 @@ public final class BattleInfoHooks {
         CrazyBattleHooks.onBattleConstructed(page);
     }
 
+    /**
+     * BattleInfoPage groups rows only by Entity.dire.  A converted EEnemy has
+     * dire == -1 so it is put in the unit table, whose renderer casts its
+     * pack to Form.  Its data is still MaskEnemy/Enemy, so that cast fails.
+     * Keep converted enemies in the enemy table; this only changes the UI
+     * lists, not the entity's side in the running battle.
+     */
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public static void filterConvertedBattleLists(List enemies, List enemyStats,
+                                                  List units, List unitStats) {
+        if (enemies == null || enemyStats == null || units == null || unitStats == null) {
+            return;
+        }
+        for (int i = units.size() - 1; i >= 0; i--) {
+            Object entity = units.get(i);
+            if (entity == null
+                    || !EntityAccess.CLASS_EENEMY.equals(entity.getClass().getName())
+                    || !manualcontrol.ConvertedRegistry.isConverted(entity)) {
+                continue;
+            }
+            units.remove(i);
+            if (i < unitStats.size()) unitStats.remove(i);
+            enemies.add(entity);
+            enemyStats.add(entity);
+        }
+    }
+
     public static boolean onMousePressed(Object page, MouseEvent e) {
         if (e == null) return false;
         try {

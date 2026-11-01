@@ -97,6 +97,12 @@ anything to draw with.
 **Anything else** - there is a file called `manual-control.log` in the BCU Crazy folder.
 Send it along with your report.
 
+## Recent update
+
+Fixed the `Enemy cannot be cast to Form` error that could appear when using **Hypnosis Beam**
+or **Copy Cat UFO**. Converted enemies now stay in the correct enemy-side statistics table
+for BCU's UI renderer while keeping their converted player-side battle behavior.
+
 ## Build it yourself
 
 Only needed if you want to change the code. You need JDK 17 or newer.

@@ -29,7 +29,7 @@ public class BattleInfoPageTransformer implements ClassFileTransformer {
             ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
             ClassVisitor cv = new Patcher(cw);
             cr.accept(cv, ClassReader.EXPAND_FRAMES);
-            Logger.log("*** PATCHED " + TARGET_CLASS + " (mouse handlers) ***");
+            Logger.log("*** PATCHED " + TARGET_CLASS + " (mouse handlers + entity tables) ***");
             return cw.toByteArray();
         } catch (Throwable t) {
             Logger.err("Failed to patch " + TARGET_CLASS, t);
@@ -61,7 +61,43 @@ public class BattleInfoPageTransformer implements ClassFileTransformer {
             if (name.equals("callBack") && descriptor.equals("(Ljava/lang/Object;)V")) {
                 return new CallBackHook(mv, access, name, descriptor);
             }
+            if (name.equals("onTimer") && descriptor.equals("(I)V")) {
+                return new EntityTableHook(mv, access, name, descriptor);
+            }
             return mv;
+        }
+    }
+
+    /** Inject the converted-enemy UI filter after the lists have been built,
+     * immediately before the first EntityTable.setList call. */
+    static class EntityTableHook extends AdviceAdapter {
+        private boolean injected;
+
+        EntityTableHook(MethodVisitor mv, int access, String name, String descriptor) {
+            super(Opcodes.ASM9, mv, access, name, descriptor);
+        }
+
+        @Override
+        public void visitMethodInsn(int opcode, String owner, String name,
+                                    String descriptor, boolean isInterface) {
+            if (!injected
+                    && "page/battle/EntityTable".equals(owner)
+                    && "setList".equals(name)
+                    && "(Ljava/util/List;)V".equals(descriptor)) {
+                // onTimer's locals are: 3=enemy list, 4=enemy stats,
+                // 5=unit list, 6=unit stats (the BCU 0.5.8.x layout).
+                visitVarInsn(ALOAD, 3);
+                visitVarInsn(ALOAD, 4);
+                visitVarInsn(ALOAD, 5);
+                visitVarInsn(ALOAD, 6);
+                visitMethodInsn(INVOKESTATIC,
+                        "manualcontrol/hooks/BattleInfoHooks",
+                        "filterConvertedBattleLists",
+                        "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V",
+                        false);
+                injected = true;
+            }
+            super.visitMethodInsn(opcode, owner, name, descriptor, isInterface);
         }
     }
 
