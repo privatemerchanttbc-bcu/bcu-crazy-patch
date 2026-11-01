@@ -30,7 +30,7 @@ import java.lang.instrument.Instrumentation;
 
 public class ManualControlAgent {
 
-    public static final String VERSION = "0.15.2";
+    public static final String VERSION = "0.15.3";
 
     private static final String ATTACK_FORM = "manualcontrol.attackform.AttackFormFeature";
     private static final String NEW_PROC = "manualcontrol.newproc.transform.";
